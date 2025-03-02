@@ -44,3 +44,6 @@ Instead of passing a string or a symbol, pass the function. How I understand thi
 
 
 The next error I encountered was matching the searched date to the flight dates. I ran into the same issue with the datetime being too complex. This time, I queried the database to find all the flights that had the correct arriving and departing airports. Once I had those, I looped over them to find the ones whose start_stripped times were the same as the user inputted time. This works, however, this is not efficient memory wise.
+
+
+Another one I faced was multiple dates. Since I used datetime for the flight time, Each flight time was (almost) always different. So, I had to use looping to find the dates that were already in the list. This way, I kept the flight instances, so I could still run flight_date_formatted inside the options_from_collection_for_select.
