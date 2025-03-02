@@ -14,7 +14,7 @@
 
 <% if !@correct_time_flights.empty? %>
 
-  <%= form_with url: "bookings#new", method: :get do |form| %>
+  <%= form_with url: new_booking_path, method: :get do |form| %>
     <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>
     <%= form.collection_radio_buttons :flight_id,
       @correct_time_flights, :id, :id_and_duration %>

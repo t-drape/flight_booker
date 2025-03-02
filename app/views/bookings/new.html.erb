@@ -1,0 +1,21 @@
+<h1>Confirm Your Flight</h1>
+
+  <div>
+    <h3>Departure Date: <%= @date.flight_date_formatted %></h3>
+    <h3>Departure Airport: <%= @departure_airport %></h3>
+    <h3>Arrival Airport: <%= @arrival_airport %></h3>
+    <h3>Flight No: <%= @flight_number %></h3>
+    <h3>Departure Time: <%= @date.flight_time_formatted %></h3>
+  </div>
+
+<%= form_with model: @booking do |form| %>
+  <%= form.hidden_field :flight_id, value: params[:flight_id] %>
+  <%= form.fields_for :passengers do |sub_form| %>
+    <%= sub_form.label :name, "Name" %>
+    <%= sub_form.text_field :name %>
+    <%= sub_form.label :email, "Email" %>
+    <%= sub_form.email_field :email %>
+  <% end %>
+  <%= form.submit "Confirm" %>
+<% end %>
+
