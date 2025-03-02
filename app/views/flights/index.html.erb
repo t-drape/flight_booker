@@ -12,7 +12,7 @@
   <%= form.submit "Search" %>
 <% end %>
 
-<% if params.has_key?(:date) %>
+<% if !@correct_time_flights.empty? %>
 
   <%= form_with url: "bookings#new", method: :get do |form| %>
     <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>

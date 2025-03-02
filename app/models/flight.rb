@@ -13,7 +13,6 @@ class Flight < ApplicationRecord
       end
       @day_month_year << [ f.start.year, f.start.month, f.start.day ]
     end
-    puts @final
     @final
   end
 
