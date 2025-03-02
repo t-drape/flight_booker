@@ -34,6 +34,10 @@ url: https://www.writesoftwarewell.com/how-to-drop-table-rails/#:~:text=Drop%20t
 
 url: https://stackoverflow.com/questions/15720940/rails-format-date-in-drop-down-list-in-view
 
+url: https://stackoverflow.com/questions/18540679/rails-4-accepts-nested-attributes-for-and-mass-assignment
+
+url: https://www.createdbypete.com/2014/04/04/working-with-nested-forms-and-a-many-to-many-association-in-rails-4.html
+
 
 Errors, and how I fixed them:
 

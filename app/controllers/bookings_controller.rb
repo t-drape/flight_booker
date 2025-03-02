@@ -11,10 +11,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
+    @booking = Booking.new(booking_params)
     if @booking.save
+      redirect_to @booking
+    else
       redirect_to :root
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @passengers = @booking.passengers
+    @flight = Flight.where(id: @booking.flight_id)[0]
+    @departure = Airport.where(id: @flight.departure_airport_id)[0].code
+    @arrival = Airport.where(id: @flight.arrival_airport_id)[0].code
+    @duration = @flight.duration
   end
 
   private

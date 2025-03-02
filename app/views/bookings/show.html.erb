@@ -1,0 +1,21 @@
+<h3>Booking Confirmed!</h3>
+
+<ul style="list-style:none">
+  <% @passengers.each do |p| %>
+  <li style=" font-size:24px; font-weight:bold">
+    <h2><%= p.name %>,</h2>
+    <h4>Email: <%= p.email %></h4>
+    </li>
+  <% end %>
+  <li>
+    <h2>Destination: <%= @arrival %></h2>
+  </li>
+  <li>
+    <h3>Departing From: <%= @departure %></h3>
+  </li>
+  <li>
+    <h3>Duration: <%= @duration %> Hours</h3>
+  </li>
+</ul>
+
+<%= link_to "Home", :root %>
