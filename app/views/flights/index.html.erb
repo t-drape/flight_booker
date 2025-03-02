@@ -1,1 +1,17 @@
 <h1>Flights</h1>
+
+<%= form_with url: :root, method: :get do |form| %>
+  <%= form.label :arrival_airport_id, "Departure" %>
+  <%= select_tag(:departure_airport_id, options_for_select(@airports)) %>
+  <%= form.label :arrival_airport_id, "Arrival" %>
+  <%= select_tag(:arrival_airport_id, options_for_select(@airports)) %>
+  <%= form.label :start, "Departure Date [M/D/Y]" %>
+  <%= select_tag :date, options_from_collection_for_select(Flight.get_flight_dates, :start_stripped, :flight_date_formatted) %>
+  <%= form.label :num_tickets, "Passengers" %>
+  <%= select_tag(:num_passengers, options_for_select([1, 2, 3, 4])) %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<% if params.has_key?(:date) %>
+  <%= params[:date].class %>
+<% end %>
