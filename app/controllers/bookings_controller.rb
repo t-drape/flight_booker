@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     @departure = Airport.where(id: @flight.departure_airport_id)[0].code
     @arrival = Airport.where(id: @flight.arrival_airport_id)[0].code
     @duration = @flight.duration
+    @time = @flight.flight_time_formatted
   end
 
   private
