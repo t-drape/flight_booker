@@ -4,7 +4,6 @@ class Flight < ApplicationRecord
 
   def self.get_flight_dates
     times = Flight.select(:start)
-    # times = times.map { |t| t.start.strftime("%Y") }
     times
   end
 

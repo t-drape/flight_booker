@@ -32,6 +32,8 @@ url: https://develclan.com/seeding-database-ruby-on-rails/#:~:text=First%2C%20yo
 
 url: https://www.writesoftwarewell.com/how-to-drop-table-rails/#:~:text=Drop%20table%20without%20migration,class%20to%20drop%20that%20table.
 
+url: https://stackoverflow.com/questions/15720940/rails-format-date-in-drop-down-list-in-view
+
 
 Errors, and how I fixed them:
 
