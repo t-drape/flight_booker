@@ -14,11 +14,10 @@
 
 <% if params.has_key?(:date) %>
 
-  <ul>
-  <% @correct_time_flights.each do |f| %>
-    <li>
-        <h3>Flight ID: <%= f.id %> Duration: <%= f.duration %> Hours</h3>
-    </li>
+  <%= form_with url: "bookings#new", method: :get do |form| %>
+    <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>
+    <%= form.collection_radio_buttons :flight_id,
+      @correct_time_flights, :id, :id_and_duration %>
+    <%= form.submit "Start Your Journey!" %>
   <% end %>
-  </ul>
 <% end %>
