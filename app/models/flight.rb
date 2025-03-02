@@ -3,7 +3,18 @@ class Flight < ApplicationRecord
   belongs_to :departure_airport, class_name: "Airport"
 
   def self.get_flight_dates
-    Flight.select(:start)
+    @ugly = Flight.select(:start)
+    @day_month_year = []
+    @final = []
+    @ugly.each do |f|
+      flight_time = [ f.start.year, f.start.month, f.start.day ]
+      if !@day_month_year.include?(flight_time)
+        @final << f
+      end
+      @day_month_year << [ f.start.year, f.start.month, f.start.day ]
+    end
+    puts @final
+    @final
   end
 
   def flight_date_formatted
