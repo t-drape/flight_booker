@@ -41,3 +41,6 @@ First, I ran into trouble with my first form returning the full datetime object 
 Instead of passing a string or a symbol, pass the function. How I understand this to work is,
 1. The Flight calls the display function, flight_date_formatted in my case.
 2. The form submits Flight.return_value. In my failed cases, I tried to have :start or 'start' as my return value. This worked to put Flight.start as the return string. But I wanted Flight.start formatted in YY/MM/DD/HH/mm. So, I tried to call the function directly on either the symbol or the string. As you can imagine, neither classes have a function called start_stripped. In the end, the solution was to simply pass the function as the return value, so the form calls Flight.start_stripped, which returns just the numbers I wanted.
+
+
+The next error I encountered was matching the searched date to the flight dates. I ran into the same issue with the datetime being too complex. This time, I queried the database to find all the flights that had the correct arriving and departing airports. Once I had those, I looped over them to find the ones whose start_stripped times were the same as the user inputted time. This works, however, this is not efficient memory wise.
