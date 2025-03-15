@@ -10,12 +10,34 @@
 
 <%= form_with model: @booking do |form| %>
   <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-  <%= form.fields_for :passengers do |sub_form| %>
-    <%= sub_form.label :name, "Name" %>
-    <%= sub_form.text_field :name %>
-    <%= sub_form.label :email, "Email" %>
-    <%= sub_form.email_field :email %>
-  <% end %>
+  <div data-controller="control-passengers">
+    <button type="button" data-action="control-passengers#add">Add</button>
+    <ul class="fields">
+      <%= form.fields_for :passengers do |sub_form| %>
+        <li data-controller="control-passengers">
+          <%= sub_form.label :name, "Name" %>
+          <%= sub_form.text_field :name %>
+          <%= sub_form.label :email, "Email" %>
+          <%= sub_form.email_field :email %>
+          <button type="button" data-action="control-passengers#remove">Remove</button>
+        </li>
+      <% end %>
+    <ul>
+  </div>
   <%= form.submit "Confirm" %>
 <% end %>
+
+<%# <div data-controller="control-passengers">
+  <button data-action="control-passengers#add">Add</button>
+</div> %>
+
+<template id="new_passenger">
+  <li data-controller="control-passengers">
+    <label>Name</label>
+    <input type="text">
+    <label>Email</label>
+    <input type="email">
+    <button type="button" data-action="control-passengers#remove">Remove</button>
+  </li>
+</template>
 
