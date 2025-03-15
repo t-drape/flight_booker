@@ -53,7 +53,7 @@ The next error I encountered was matching the searched date to the flight dates.
 Another one I faced was multiple dates. Since I used datetime for the flight time, Each flight time was (almost) always different. So, I had to use looping to find the dates that were already in the list. This way, I kept the flight instances, so I could still run flight_date_formatted inside the options_from_collection_for_select.
 
 
-Refactor:
+Refactor Stimulus:
 
 I refactored the original code using stimulus. This change allows users to add or delete passengers in the booking phase. One issue I ran into was having my add button submit the form. This ended up being an easy fix, just adding type="button" to it.
 
@@ -62,3 +62,9 @@ Helpful Sources:
 url: https://www.youtube.com/watch?v=XlyFLC3YqPw
 
 url: https://stackoverflow.com/questions/3314989/can-i-make-a-button-not-submit-a-form
+
+
+Refactor Mailer:
+
+I added mailers to the project. This change sends each user an email upon confirming the flight booking. The only issue I encountered in adding
+this functionality was connecting the passengers info from the bookings controller to the mailer. I tried a couple approaches, such as passing all the passengers, but I ultimately looped over the passengers in the controller, and sent them to mailer individually. The Mailer docs were the main source to help combat this error.
