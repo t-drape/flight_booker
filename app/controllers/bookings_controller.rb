@@ -22,6 +22,12 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @passengers = @booking.passengers
+
+    @passengers.each do |e|
+      PassengerMailer.with(passenger: e).welcome_email.deliver_later
+    end
+    
+
     @flight = Flight.where(id: @booking.flight_id)[0]
     @departure = Airport.where(id: @flight.departure_airport_id)[0].code
     @arrival = Airport.where(id: @flight.arrival_airport_id)[0].code
