@@ -67,4 +67,4 @@ url: https://stackoverflow.com/questions/3314989/can-i-make-a-button-not-submit-
 Refactor Mailer:
 
 I added mailers to the project. This change sends each user an email upon confirming the flight booking. The only issue I encountered in adding
-this functionality was connecting the passengers info from the bookings controller to the mailer. I tried a couple approaches, such as passing all the passengers, but I ultimately looped over the passengers in the controller, and sent them to mailer individually. The Mailer docs were the main source to help combat this error.
+this functionality was connecting the passengers' info from the bookings controller to the mailer. I tried a couple approaches, such as passing all the passengers, but I ultimately looped over the passengers in the controller, and sent them to the mailer individually. The Mailer docs were the main source to help combat this error.
